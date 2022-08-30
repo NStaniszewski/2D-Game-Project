@@ -1,4 +1,0 @@
-music 1
-SFX 1
-resolutionx 800.0
-resolutiony 425.0
