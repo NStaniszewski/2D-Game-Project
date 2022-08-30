@@ -1,0 +1,11 @@
+world 2
+worldsave 1
+xpos 732.3999999999979
+ypos 368.0
+money 0
+hp 1.0
+max_hp 10.0
+atk 1.0
+def 1.0
+bonus 0.0
+multi 1.0
