@@ -162,7 +162,7 @@ enemy_actions={}
 atk_action3_timer=0
 invincible_time=0
 invincible=1
-shop_data={'atk_base_boost':[0,60,60,20,''],'atk_multi_boost':[0,0,0,0,''],'chest_base_boost':[0,0,0,0,''],'chest_multi_boost':[0,0,0,0,''],'hp_pot':[0,0,0,0,'']}
+shop_data={'atk_base_boost':[0,60,60,20,'testingtestingtestingtesting'],'atk_multi_boost':[0,0,0,0,''],'chest_base_boost':[0,0,0,0,''],'chest_multi_boost':[0,0,0,0,''],'hp_pot':[0,0,0,0,'']}
 buy_lock=0
 
 while RUNNING:
@@ -227,11 +227,12 @@ while RUNNING:
                 for line in fp_shop:
                     line=line.strip()
                     temp_list.append(line)
-                shop_data['atk_base_boost']=[int(temp_list[0]),60,60,20,'']
-                shop_data['atk_multi_boost']=[int(temp_list[1]),0,0,0,'']
-                shop_data['chest_base_boost']=[int(temp_list[2]),0,0,0,'']
-                shop_data['chest_multi_boost']=[int(temp_list[3]),0,0,0,'']
-                shop_data['hp_pot']=[int(temp_list[4]),0,0,0,'']
+                shop_data['atk_base_boost']=[int(temp_list[0]),60,60,20,'+1 to Base Attack']
+                shop_data['atk_multi_boost']=[int(temp_list[1]),260,60,0,'+.1 to Attack Multiplier']
+                shop_data['chest_base_boost']=[int(temp_list[2]),460,60,0,'+1 to Base Chest Gold']
+                shop_data['chest_multi_boost']=[int(temp_list[3]),60,150,0,'+.1 to Chest Gold Multiplier']
+                shop_data['hp_pot']=[int(temp_list[4]),60,240,100,'Consumable, heals 20 hp']
+                #level, x, y, cost, description
                 temp_list=[]
                 fp_shop.close()
     elif world_check==-1:
@@ -282,7 +283,7 @@ while RUNNING:
         player()
         #[level (for consumables level = #owned),x,y,cost(add in function to increase cost with level later),desc]
         for key in shop_data:
-            shop=Shop.shop_item(shop_data[key][1],shop_data[key][2],shop_data[key][0],shop_data[key][4],scale)
+            shop=Shop.shop_item(shop_data[key][1],shop_data[key][2],shop_data[key][0],shop_data[key][4],scale,shop_data[key][3])
             if shop.shop_spawn(screen):
                 if money>=shop_data[key][3] and buy_lock==0:
                     shop_data[key][0]+=1
