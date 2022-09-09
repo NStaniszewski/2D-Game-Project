@@ -1,1 +1,2 @@
-player_defending_right
+
+enemy_cap=1
